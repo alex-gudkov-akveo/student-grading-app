@@ -9,7 +9,7 @@ services:
       VITE_API_DOMAIN: grading-app-api
     depends_on:
       - grading-app-api
-    restart: always
+    # restart: always
   grading-app-api:
     container_name: grading-app-api
     build: ./API
@@ -18,7 +18,7 @@ services:
     depends_on:
       grading-app-db:
         condition: service_healthy
-    restart: always
+    # restart: always
     env_file:
       - ./API/.env
     environment:
@@ -26,7 +26,7 @@ services:
   grading-app-db:
     container_name: grading-app-db
     image: postgres:15
-    restart: always
+    # restart: always
     ports:
       - 5432:5432
     environment:
